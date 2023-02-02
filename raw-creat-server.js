@@ -1,6 +1,7 @@
 const http = require('http');
 
 function syncSleep() {
+  // 大概阻塞 10 秒
   const arr = new Array(33599999).fill(1)
   arr.forEach((item) => {
     // 占位
