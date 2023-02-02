@@ -1,5 +1,5 @@
-const Koa = require('koa');
-const app = new Koa();
+const KoaServer = require('koa');
+const app = new KoaServer();
 
 app.use(async ctx => {
   console.log('收到请求');
