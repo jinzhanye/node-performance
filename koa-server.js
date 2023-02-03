@@ -1,7 +1,14 @@
 const KoaServer = require('koa');
+const Router = require('koa-router');
+
+const router = new Router();
 const app = new KoaServer();
 
-app.use(async ctx => {
+router.get('/', async(ctx) => {
+  ctx.body = 'hello koa'
+});
+
+router.get('/sleep', async(ctx) => {
   console.log('收到请求');
   ctx.body = await getResult();
   console.log('已响应');
@@ -16,6 +23,8 @@ async function getResult(){
     });
   })
 }
+
+app.use(router.routes());
 
 app.listen(3011, () => {
   console.log('listening on http://localhost:3011')
